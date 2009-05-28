@@ -42,6 +42,14 @@ glDrawTexiOES(GLint x, GLint y, GLint z, GLint width, GLint height)
 
 #endif /* __QNXNTO__ */
 
+#if SDL_VIDEO_DRIVER_PANDORA
+GL_API void GL_APIENTRY
+glDrawTexiOES(GLint x, GLint y, GLint z, GLint width, GLint height)
+{
+    return;
+}
+#endif /* SDL_VIDEO_DRIVER_PANDORA */
+
 /* OpenGL ES 1.1 renderer implementation, based on the OpenGL renderer */
 
 static const float inv255f = 1.0f / 255.0f;

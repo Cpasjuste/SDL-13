@@ -36,6 +36,10 @@
 #include <errno.h>              /* errno, strerror */
 #include <math.h>               /* atan2 */
 
+#ifdef SDL_VIDEO_DRIVER_PANDORA
+#include <sys/stat.h>
+#endif
+
 /* Just in case. */
 #ifndef M_PI
 #  define M_PI     3.14159265358979323846
