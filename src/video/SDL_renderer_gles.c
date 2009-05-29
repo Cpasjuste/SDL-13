@@ -293,6 +293,10 @@ GLES_CreateRenderer(SDL_Window * window, Uint32 flags)
         }
     }
 
+#if SDL_VIDEO_DRIVER_PANDORA
+        data->GL_OES_draw_texture_supported = SDL_FALSE;
+        data->useDrawTexture = SDL_FALSE;
+#else
     if (SDL_GL_ExtensionSupported("GL_OES_draw_texture")) {
         data->GL_OES_draw_texture_supported = SDL_TRUE;
         data->useDrawTexture = SDL_TRUE;
@@ -300,6 +304,7 @@ GLES_CreateRenderer(SDL_Window * window, Uint32 flags)
         data->GL_OES_draw_texture_supported = SDL_FALSE;
         data->useDrawTexture = SDL_FALSE;
     }
+#endif
 
     data->glGetIntegerv(GL_MAX_TEXTURE_SIZE, &value);
     renderer->info.max_texture_width = value;
