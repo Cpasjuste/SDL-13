@@ -25,6 +25,8 @@
 */
 #include "SDL_config.h"
 
+#if SDL_VIDEO_DRIVER_PANDORA
+
 #include "SDL_x11video.h"
 #include "SDL_x11opengles.h"
 
@@ -352,5 +354,7 @@ X11_GLES_DeleteContext(_THIS, SDL_GLContext context)
 	}
     _this->gles_data->egl_active = 0;
 }
+
+#endif
 
 /* vi: set ts=4 sw=4 expandtab: */
